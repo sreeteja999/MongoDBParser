@@ -38,7 +38,7 @@ public class UpdateMongoDB {
             {
                 Object parse = jsonParser.parse(s);
                 if(parse instanceof JSONObject){
-                    JSONObject jsonObject = (JSONObject) jsonParser.parse(s);
+                    JSONObject jsonObject = (JSONObject) parse;
                     componentparse(jsonObject,printWriter);
                 }
             }
