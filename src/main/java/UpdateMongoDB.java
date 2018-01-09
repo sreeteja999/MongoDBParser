@@ -118,12 +118,14 @@ public class UpdateMongoDB {
     }
 
     public static void componentparse(JSONObject component, PrintWriter printWriter) {
-        if (component.containsKey("components")) {                                       //check if JSONobject contains key as 'components',if yes go inside loop
+        if (component.containsKey("components")) {                                       // Check if JSONobject contains key as 'components',if yes go inside loop
             Object componentobject = component.get("components");
-            if (componentobject instanceof JSONArray) {                                   //check in components contain array of JSONobjects
+            if (componentobject instanceof JSONArray) {                                   // Check in components contain array of JSONobjects
                 JSONArray componentobject1 = (JSONArray) componentobject;
-                for (int i = 0; i < componentobject1.size(); i++) {                         //repeat loop for entire array of JSONobject
-                    Object componentobj = componentobject1.get(i);
+//                for (int i = 0; i < componentobject1.size(); i++) {                         // Repeat loop for entire array of JSONobject
+//                  Object componentobj = componentobject1.get(i);
+                // Repeat loop for entire array of JSONobject - For each does the same as for loop
+                for (Object componentobj: componentobject1) {  // <- Internal Iterator (Keeps you safe from array out of bound Exceptions)  
                     if (componentobj instanceof JSONObject) {
                         JSONObject componentobj1 = (JSONObject) componentobj;
                         String keyvalue = "", xpathvalue = "", typevalue = "";
